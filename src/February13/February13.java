@@ -37,7 +37,7 @@ public class February13 {
         }
         int firstNotEmpty = -1;
         for(int i = 0; i < array.length; i++) {
-            if(!array[i].isEmpty()) {
+            if (!array[i].isEmpty()) {
                 firstNotEmpty = i;
             }
         }
