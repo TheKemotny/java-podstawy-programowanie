@@ -31,19 +31,21 @@ public class February13 {
     //W podanym ciągu znaków znajdź najdłuższy podciąg składający się z jednego znaku np. AABCDDBBBEA -> “B:3”
     //Ciąg to tablica Stringów dowolnej wielkości. Nie używaj w zadaniu Kolekcji (Collections tzn List, Setów itp.).
     public static void taskExtra(String... array) {
+        int firstNotEmpty = -1;
         if(array.length == 0) {
             System.out.println("NO STRINGS");
             return;
-        }
-        int firstNotEmpty = -1;
-        for(int i = 0; i < array.length; i++) {
-            if (!array[i].isEmpty()) {
-                firstNotEmpty = i;
+        }else{
+            for(int i = 0; i < array.length; i++) {
+                if (!array[i].isEmpty()) {
+                    firstNotEmpty = i;
+                    break;
+                }
             }
-        }
-        if(firstNotEmpty == -1){
-            System.out.println("ALL EMPTY STRINGS");
-            return;
+            if(firstNotEmpty == -1){
+                System.out.println("ALL EMPTY STRINGS");
+                return;
+            }
         }
         int currentLongestCounterOfCharacter = -1;
         int currentCharacterCounter = 0;
@@ -112,9 +114,9 @@ public class February13 {
     }
 
     public static void main(String[] args) {
-        //taskExtra("");
+        taskExtra("","","","o");
         //taskExtra();
-        //taskExtra("","bb","+++++++","dijhasohfas","123355555555");
+        //taskExtra("","bb","+++++++","dijhasohfas","123355555555","");
         //taskExtra("asfasfm,", "ala ma kota", "          ");
         //taskExtra("AABCDDBBBEA");
         //taskThree();
