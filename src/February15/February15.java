@@ -92,34 +92,52 @@ public class February15 {
         int numberOfWaves = scanner.nextInt();
         System.out.print("HEIGHT OF WAVE: ");
         int heightOfWave = scanner.nextInt();
-        String character = "*";
-        String result = "";
+        System.out.print("CHARACTER OF WAVE: ");
+        String character = String.valueOf(scanner.next().charAt(0));
+        StringBuilder stringBuilder = new StringBuilder();
 
         for(int i = 0; i < heightOfWave; i++){
             for(int j = 0; j < numberOfWaves; j++){
                 //WHITESPACE BEFORE WAVE
-                result = result.concat(printWhitespaceNTimes(i));
+                stringBuilder.append(whitespaceNTimes(i));
                 //WAVE
-                result = result.concat(character);
+                stringBuilder.append(character);
                 //NUMBER OF WHITESPACE BETWEEN WAVE
                 int whitesSpaceInBetween = (heightOfWave * 2) - (2 * i) - 2;
-                result = result.concat(printWhitespaceNTimes(whitesSpaceInBetween));
+                stringBuilder.append(whitespaceNTimes(whitesSpaceInBetween));
                 //WAVE
-                result = result.concat(character);
+                stringBuilder.append(character);
                 //WHITESPACE AFTER WAVE
-                result = result.concat(printWhitespaceNTimes(i));
+                stringBuilder.append(whitespaceNTimes(i));
             }
-            result = result.concat("\n");
+            stringBuilder.append("\n");
         }
-        System.out.println(result);
+        System.out.println(stringBuilder.toString());
     }
 
-    public static String printWhitespaceNTimes(int times){
+    public static String whitespaceNTimes(int times){
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < times; i++){
-            stringBuilder.insert(i," ");
+            stringBuilder.append(" ");
         }
         return stringBuilder.toString();
+    }
+
+    public static int sumOfDigits(int number){
+        int sum = 0;
+        do{
+            sum += number % 10;
+            number /= 10;
+        }while (number != 0);
+        return sum;
+    }
+
+    public static void taskTen(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("NUMBER: ");
+        int number = scanner.nextInt();
+
+        System.out.println("SUM OF DIGITS OF NUMBER " + number + " IS " + sumOfDigits(number));
     }
 
 
@@ -128,6 +146,8 @@ public class February15 {
         int[] firstArrayExample = {-1, 3, 8, 2, 9, 5};
         int[] secondArrayExample = {4, 1, 2, 10, 5, 20};
         //taskExtra(firstArrayExample, secondArrayExample);
-        taskTwo();
+        //taskTwo();
+        taskTen();
+
     }
 }
