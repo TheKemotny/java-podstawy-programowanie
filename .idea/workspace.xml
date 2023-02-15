@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31a16ad3-b19d-47fb-956d-d18d9c7fb964" name="Changes" comment="+task extra fix">
-      <change afterPath="$PROJECT_DIR$/src/February14/February14.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="31a16ad3-b19d-47fb-956d-d18d9c7fb964" name="Changes" comment="+feb 14" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676391928182</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="+feb 14">
+      <created>1676404781092</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676404781092</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -88,6 +92,7 @@
     <MESSAGE value="+task one&#10;+task two&#10;+task three&#10;+task extra" />
     <MESSAGE value="+task four" />
     <MESSAGE value="+task extra fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="+task extra fix" />
+    <MESSAGE value="+feb 14" />
+    <option name="LAST_COMMIT_MESSAGE" value="+feb 14" />
   </component>
 </project>
