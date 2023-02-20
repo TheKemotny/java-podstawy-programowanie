@@ -1,6 +1,5 @@
 package February16;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class February16 {
@@ -82,6 +81,6 @@ public class February16 {
         //System.out.println(power(5,4));
         taskTwo();
         taskThree();
-
+        System.out.println();
     }
 }
