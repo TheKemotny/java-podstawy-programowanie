@@ -1,32 +1,44 @@
 package February20;
 
-import java.io.Console;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class February20 {
 
+    public static int[] deleteDuplicateNumbers(int... numbers){
+        Arrays.sort(numbers);
+        int[] arrayToReturn = new int[1];
+        arrayToReturn[0] = numbers[0];
+        int counter = 0;
+        for(int i = 0; i < numbers.length - 1; i++){
+            if(numbers[i] != numbers[i + 1]) {
+                arrayToReturn = Arrays.copyOf(arrayToReturn, arrayToReturn.length + 1);
+                arrayToReturn[++counter] = numbers[i + 1];
+            }
+        }
+        return arrayToReturn;
+    }
+
+
     public static String caesarCipher(String message, int shift){
         StringBuilder stringBuilder = new StringBuilder();
         String plLetters = "AĄBCĆDEĘFGHIJKLŁMNŃOÓPRSŚTUWYZŹŻ";
-        String plLettersButLowerCase = plLetters.toLowerCase();
         for(String character: message.split("")) {
+            int result = shift;
+            result += plLetters.indexOf(character.toUpperCase());
+            result %= plLetters.length();
+            if (result < 0) result = result + plLetters.length();
             if(plLetters.contains(character)) {
-                int indexOfChar = plLetters.indexOf(character);
-                indexOfChar += shift;
-                indexOfChar %= plLetters.length();
-                stringBuilder.append(plLetters.charAt(indexOfChar));
-            } else if (plLettersButLowerCase.contains(character)) {
-                int indexOfChar = plLettersButLowerCase.indexOf(character);
-                indexOfChar += shift;
-                indexOfChar %= plLettersButLowerCase.length();
-                stringBuilder.append(plLettersButLowerCase.charAt(indexOfChar));
+                stringBuilder.append(plLetters.charAt(result));
+            } else if (plLetters.toLowerCase().contains(character)) {
+                stringBuilder.append(plLetters.toLowerCase().charAt(result));
             } else if (Character.isDigit(character.charAt(0))) {
-                int result = Integer.parseInt(character);
-                result += shift;
+                result = shift;
+                result += Integer.parseInt(character);
                 result %= 10;
-                stringBuilder.append(String.valueOf(result));
+                stringBuilder.append(result);
             } else {
                 stringBuilder.append(character);
             }
@@ -75,15 +87,9 @@ public class February20 {
                     String message = scanner.nextLine();
                     System.out.println(decryptMessage(message, shift));
                 }
-                case 3 -> {
-                    shift = getNumberFromUserWithMessage("ENTER NEW SHIFT: ");
-                }
-                case 0 -> {
-                    isDone = true;
-                }
-                default -> {
-                    System.out.println("NOT YET IMPLEMENTED");
-                }
+                case 3 -> shift = getNumberFromUserWithMessage("ENTER NEW SHIFT: ");
+                case 0 -> isDone = true;
+                default -> System.out.println("NOT YET IMPLEMENTED");
             }
         }while (!isDone);
     }
@@ -117,8 +123,8 @@ public class February20 {
         int[] array = getTenIntegersFromUser();
         printArray(array);
         System.out.println("NUMBERS WITH MINIMUM 2 OCCURRENCES");
-        A: for(int i = 0; i < (array.length - 1); i++){
-            B: for(int j = (i + 1); j < array.length; j++){
+        for(int i = 0; i < (array.length - 1); i++){
+            for(int j = (i + 1); j < array.length; j++){
                 if(array[i] == array[j]) {
                     System.out.println(array[i]);
                     break;
@@ -127,29 +133,57 @@ public class February20 {
         }
     }
 
-    public static void taskTwo(){
-        int[] array = getTenIntegersFromUser();
-        printArray(array);
+    public static int findLongestSequenceInNumbers(int... numbers){
         int longestSequenceOfNumbers = 1;
         int currentLongestSequence = 1;
-        int firstIndexOfSequence = 0;
-        for(int i = 0; i < array.length - 1; i++){
-            if(array[i] < array[i+1]){
+        for(int i = 0; i < numbers.length - 1; i++) {
+            if(numbers[i] < numbers[i+1]) {
                 currentLongestSequence++;
-            }else{
+            }else {
                 currentLongestSequence = 1;
-                firstIndexOfSequence = i + 1;
             }
             longestSequenceOfNumbers = Math.max(longestSequenceOfNumbers, currentLongestSequence);
         }
+        return longestSequenceOfNumbers;
+    }
+
+    public static void taskTwo(){
+        int[] array = getTenIntegersFromUser();
+        printArray(array);
+        int longestSequenceOfNumbers = findLongestSequenceInNumbers(array);
         System.out.println(longestSequenceOfNumbers);
-        for(int i = firstIndexOfSequence; i < (firstIndexOfSequence + currentLongestSequence); i++){
-            System.out.print(array[i] + "\t");
+    }
+
+    public static String getInputFromUserWithMessage(String message){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(message);
+        return scanner.nextLine();
+    }
+
+    public static long daysUntilDate(LocalDateTime date){
+        Duration duration = Duration.between(LocalDateTime.now(), date);
+        return duration.toDays();
+    }
+
+    public static void taskThree(){
+        String userInput = getInputFromUserWithMessage("ENTER DATE (DD MM YEAR): ");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd MM yyyy HH mm ss");
+        userInput = userInput.concat(" 17 30 00");
+        LocalDateTime date = LocalDateTime.parse(userInput, dateTimeFormatter);
+        long days = daysUntilDate(date);
+        if(days < 0) {
+            System.out.println("COURSE HAS ALREADY TAKEN PLACE");
+        } else if (days == 0) {
+            System.out.println("COURSE IS TODAY");
+        } else {
+            System.out.println("DAYS UNTIL NEXT COURSE: " + days);
         }
     }
 
     public static void main(String[] args) {
-        //taskCaesar();
-        taskTwo();
+        taskCaesar();
+        //taskTwo();
+        //System.out.println(Arrays.toString(deleteDuplicateNumbers(20, 20, 30, 40, 50, 50, 50)));
+        //taskThree();
     }
 }
