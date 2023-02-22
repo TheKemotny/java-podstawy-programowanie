@@ -39,12 +39,14 @@ public class February21 {
             bonusesForDevs[0] = currentBonus++;
         }
         for(int i = 1; i < linesOfCodes.length - 1; i++) {
-            if(linesOfCodes[i] < linesOfCodes[i + 1]) {
+            if(linesOfCodes[i] < linesOfCodes[i + 1]) { // 3,2,1,3,4
                 if(linesOfCodes[i - 1] < linesOfCodes[i]) {
                     bonusesForDevs[i] = currentBonus++;
                 } else if (linesOfCodes[i - 1] > linesOfCodes[i + 1]) {
                     bonusesForDevs[i] = bonusesForDevs[i]--;
                     currentBonus--;
+                } else{
+                    currentBonus += 2;
                 }
             } else if (linesOfCodes[i] > linesOfCodes[i + 1]) {
                 bonusesForDevs[i] = currentBonus--;
@@ -55,6 +57,7 @@ public class February21 {
                 }
             }
         }
+        System.out.println(currentBonus);
         if(linesOfCodes[linesOfCodes.length - 1] > linesOfCodes[linesOfCodes.length - 2]){
             bonusesForDevs[linesOfCodes.length - 1] = bonusesForDevs[linesOfCodes.length - 2] + 1;
         } else {
@@ -102,7 +105,7 @@ public class February21 {
         //taskOne();
         //taskEighteen();
         //guessGame(0, 1000);
-        int[] bonuses = bonusesForDevs(10, 40, 200, 1000, 60, 1);
+        int[] bonuses = bonusesForDevs(10, 40, 200, 1000, 60, 40);
         System.out.println(Arrays.toString(bonuses));
     }
 

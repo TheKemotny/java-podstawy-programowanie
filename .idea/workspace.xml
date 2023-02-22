@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31a16ad3-b19d-47fb-956d-d18d9c7fb964" name="Changes" comment="task one, two, caesar cipher">
-      <change afterPath="$PROJECT_DIR$/src/February21/February21.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaskNineteen/Author.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaskNineteen/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaskNineteen/Poem.java" afterDir="false" />
+    <list default="true" id="31a16ad3-b19d-47fb-956d-d18d9c7fb964" name="Changes" comment="all fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/February20/February20.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/February20/February20.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/February21/February21.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/February21/February21.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676917455584</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="all fix">
+      <created>1677009646543</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1677009646543</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,7 +155,8 @@
     <MESSAGE value="task ten" />
     <MESSAGE value="end of day 16" />
     <MESSAGE value="task one, two, caesar cipher" />
-    <option name="LAST_COMMIT_MESSAGE" value="task one, two, caesar cipher" />
+    <MESSAGE value="all fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="all fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
